@@ -4,7 +4,7 @@
   "description": "Boilerplate code for projects using AngularJS and socket.io.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,12 @@
   "author": "Ramakrishna Pattnaik <rkpattnaik780@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "yeoman-generator": "^3.2.0"
+    "mocha": "^6.0.2",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-generator": "^3.2.0",
+    "yeoman-test": "^1.9.1"
   },
-  "files":[
+  "files": [
     "app"
   ]
 }

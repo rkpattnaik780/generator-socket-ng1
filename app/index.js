@@ -13,17 +13,20 @@ module.exports = class extends Generator {
        {
         type    : 'input',
         name    : 'name',
-        message : 'Enter a name for the project (ex: MyApp): '
+        message : 'Enter a name for the project (ex: MyApp): ',
+        deafult : 'SampleApp'
         },
         {
         type    : 'input',
         name    : 'author',
-        message : 'Enter your name: '
+        message : 'Enter your name: ',
+        default : ""
         },
         {
         type    : 'input',
         name    : 'description',
-        message : 'Brief description of project: '
+        message : 'Brief description of project: ',
+        deafult : "Enter description"
         }
     ]);
   }
