@@ -2,6 +2,7 @@
 
 ## Add description 
 
+<%= description %>
 
 ## Pre-requisites
 

@@ -1,6 +1,6 @@
 {
   "name": "generator-socket-ng1",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Boilerplate code for projects using AngularJS and socket.io.",
   "main": "index.js",
   "scripts": {
@@ -22,10 +22,13 @@
   "author": "Ramakrishna Pattnaik <rkpattnaik780@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^2.4.2",
+    "mkdirp": "^0.5.1",
     "mocha": "^6.0.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-generator": "^3.2.0",
-    "yeoman-test": "^1.9.1"
+    "yeoman-test": "^1.9.1",
+    "yosay": "^2.0.2"
   },
   "files": [
     "app"

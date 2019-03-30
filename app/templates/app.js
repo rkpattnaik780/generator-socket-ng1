@@ -10,7 +10,10 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 
 
-var server = app.listen(process.env.PORT || '8080',() => {console.log("App Listening for Connections..")});
+var server = app.listen(process.env.PORT || '8080',() => {
+  console.log("App Listening for Connections..");
+  console.log("Open localhost:8080 in your browser");
+});
 
 var io = require('socket.io')(server);
 
