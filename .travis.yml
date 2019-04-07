@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+ - "8.10.0"
+
+install:
+  - npm install
+script:
+  - npm test
+
+ notifications:
+  email:
+    recipients:
+    - rkpattnaik780@gmail.com
+    on_success: change
+    on_failure: always

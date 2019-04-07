@@ -4,6 +4,7 @@
   "description": "Boilerplate code for projects using AngularJS and socket.io.",
   "main": "index.js",
   "scripts": {
+    "pretest": "eslint .",
     "test": "mocha"
   },
   "repository": {
@@ -32,5 +33,9 @@
   },
   "files": [
     "app"
-  ]
+  ],
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0"
+  }
 }

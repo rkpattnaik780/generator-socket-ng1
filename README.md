@@ -23,6 +23,29 @@ Then generate your new project:
 yo generator-socket-ng1
 ```
 
+## Directory structure
+
+```
+  |
+  |-->public
+  |     |--> index.html
+  |     |--> images
+  |     |       |--> favicon.ico
+  |     |--> scripts
+  |     |       |--> app.js
+  |     |       |--> controllers
+  |     |       |--> services
+  |     |--> styles
+  |     |       |--> app.css
+  |     |--> views
+  |--> app.js
+  |--> LICENSE.md
+  |--> package.json
+  |--> README.md
+  |--> .gitignore
+  
+```
+
 ## License
 
 MIT © [Ramkrishna Pattnaik](https://github.com/rkpattnaik780)

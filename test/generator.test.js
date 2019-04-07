@@ -10,11 +10,13 @@ describe('Generation of files', function(){
       .withLocalConfig({ lang: 'en' }) // Mock the local config
       .then(function() {
         // assert something about the generator
-        assert.file(['public',
-                     'app.js', 
-                     'LICENSE.md', 
-                     'package.json', 
-                     'README.md']);
+        assert.file([
+          'public',
+          'app.js', 
+          'LICENSE.md', 
+          'package.json', 
+          'README.md'
+        ]);
       });
-  })
+  });
 });
