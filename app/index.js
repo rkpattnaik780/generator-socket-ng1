@@ -37,7 +37,32 @@ module.exports = class extends Generator {
         type    : 'input',
         name    : 'author',
         message : 'Enter your name: ',
-        default : ""
+      },
+      {
+        type: 'checkbox',
+        name: 'modules',
+        message: 'Which modules would you like to include?',
+        choices: [
+          {
+            value: 'animateModule',
+            name: 'angular-animate.js',
+            checked: true
+          }, 
+          {
+            value: 'routeModule',
+            name: 'angular-route.js',
+            checked: true
+          }, 
+          {
+            value: 'sanitizeModule',
+            name: 'angular-sanitize.js',
+            checked: true
+          }, 
+          {
+            value: 'touchModule',
+            name: 'angular-touch.js',
+            checked: true
+          }]
       },
       {
         type    : 'input',
@@ -85,19 +110,44 @@ module.exports = class extends Generator {
       this.destinationPath("public/images")
     );
     await this.fs.copy(
-      this.templatePath("public/scripts"),
-      this.destinationPath("public/scripts")
-    );
-    await this.fs.copy(
       this.templatePath("public/styles/app.css"),
       this.destinationPath("public/styles/app." + this.answers.style)
     );
-    mkdirp.sync(path.join(this.destinationPath(),'public/views'));
-    await this.fs.copyTpl(
-      this.templatePath("public/index.html"),
-      this.destinationPath("public/index.html"),
-      { title : this.answers.name }
-    );
+    if(this.answers.modules.includes('routeModule')){
+
+      this.composeWith(require.resolve('./sub-generators/angular-router'),{
+        "appName" : this.answers.name
+      });
+
+      await this.fs.copyTpl(
+        this.templatePath("public/index.html"),
+        this.destinationPath("public/index.html"),
+        { 
+          title : this.answers.name , 
+          ngRoute : true, 
+          ngAnimate : this.answers.modules.includes('animateModule'),
+          ngSanitize : this.answers.modules.includes('sanitizeModule'),
+          ngTouch : this.answers.modules.includes('touchModule') 
+        }
+      );
+    } else {
+      await this.fs.copy(
+        this.templatePath("public/scripts"),
+        this.destinationPath("public/scripts")
+      );
+
+      await this.fs.copyTpl(
+        this.templatePath("public/index.html"),
+        this.destinationPath("public/index.html"),
+        { 
+          title : this.answers.name,
+          ngRoute : false,
+          ngAnimate : this.answers.modules.includes('animateModule'),
+          ngSanitize : this.answers.modules.includes('sanitizeModule'),
+          ngTouch : this.answers.modules.includes('touchModule'),
+        }
+      );
+    }
   }
 
   async install(){

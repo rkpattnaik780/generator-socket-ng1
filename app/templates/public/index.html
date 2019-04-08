@@ -4,16 +4,36 @@
         <meta charset="utf-8">
         <title> <%= title %> </title>
         <link href="./styles/app.css" rel="stylesheet" type="text/css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+        <%if (ngRoute) { %>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <% } %>
+        <%if (ngAnimate) { %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-animate.min.js"></script>
+        <% } %>
+        <%if (ngSanitize) { %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-sanitize.min.js"></script>
+        <% } %>
+        <%if (ngTouch) { %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-touch.min.js"></script>
+        <% } %>
         <script src="/socket.io/socket.io.js"></script>
         <script src="scripts/app.js"></script>
+        <%if (ngRoute) { %>
+        <script src="scripts/controllers/main.js"></script>
+        <% } %>
     </head>
     <body>
-        <section>
+        <section ng-app="myApp" class="ng-cloak">
             <h1> <%= title %> </h1>
-            <div ng-app="myApp" ng-controller="myCtrl" class="ng-cloak">
-                {{ message }}
-            </div>
+            <%if (!ngRoute) { %>
+                <div ng-controller="MainCtrl">
+                    {{ message }}
+                </div>
+            <% } %>
+            <%if (ngRoute) { %>
+                <div ng-view=""></div>
+            <% } %>
         </section>
     </body>
 </html>
