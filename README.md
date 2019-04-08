@@ -8,12 +8,8 @@ First, install [Yeoman](http://yeoman.io) and generator-socket-ng1 using [npm](h
 
 Once node is installed, run this in your terminal.
 
-Note that below you can change my-new-component to the folder name of your choice.
-
 
 ```bash
-mkdir my-new-component 
-cd my-new-component
 npm install -g yo generator-socket-ng1
 ```
 
@@ -44,6 +40,33 @@ yo generator-socket-ng1
   |--> README.md
   |--> .gitignore
   
+```
+
+## Sample Usage 
+
+### Running the generator
+
+![generator](./screenshots/socket_ng1_main.png)
+
+### Running the server of generated app
+
+![server](./screenshots/socket_ng1_run_server.png)
+
+### Client app
+
+![client](./screenshots/socket_ng1_client.png)
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# run linting tests
+npm run pretest
+
+# run all tests
+npm test
 ```
 
 ## License
